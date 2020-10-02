@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculatorApp
 {
@@ -14,7 +10,7 @@ namespace CalculatorApp
             System.Console.WriteLine("63 - 13.5 = {0}", Calculator.minus(63, 13.5));
             System.Console.WriteLine("13.2 / -2.35 = {0}", Calculator.divide(13.2, -2.35));
             System.Console.WriteLine("-4.32 * 11.875 = {0}", Calculator.multiply(-4.32, 11.875));
-      
+
             System.Console.WriteLine("Thank you");
         }
     }
