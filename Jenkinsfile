@@ -24,10 +24,11 @@ pipeline {
             }
         }
 
-		stage('Test') {
+	stage('Test') {
             steps {
-                sh "docker build --build-arg HTTP_PROXY=${HTTP_PROXY} --build-arg HTTPS_PROXY=${HTTPS_PROXY} --build-arg NO_PROXY=${NO_PROXY} -t oasis-calculator-app:0.0.1 -f Dockerfile ."
-				sh "docker run --rm oasis-calculator-app:0.0.1"
+                // sh "docker build --build-arg HTTP_PROXY=${HTTP_PROXY} --build-arg HTTPS_PROXY=${HTTPS_PROXY} --build-arg NO_PROXY=${NO_PROXY} -t oasis-calculator-app:0.0.1 -f Dockerfile ."
+                sh "docker build -t oasis-calculator-app:0.0.1 -f Dockerfile ."
+		sh "docker run --rm oasis-calculator-app:0.0.1"
             }
         }
     }
