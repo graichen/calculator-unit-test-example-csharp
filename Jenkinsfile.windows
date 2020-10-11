@@ -32,7 +32,7 @@ pipeline {
                     //args '-u ${JENKINS_UID}'
                     // for windows let's skip setting user
                     //args '-u root:root'
-                    args "-u root:root -e HOME=/tmp -e SONAR_TOKEN=${SONAR_LOGIN_KEY}"
+                    args "-u root:root -e SONAR_TOKEN=${SONAR_LOGIN_KEY}"
                 }
             }
             steps {
@@ -51,7 +51,7 @@ pipeline {
             agent {
                 docker {
                     // to run as non-root:
-                    image 'mcr.microsoft.com/dotnet/core/runtime:3.1'
+                    image 'mcr.microsoft.com/dotnet/core/aspnet:3.1'
                     //args '-u ${JENKINS_UID}'
                     // for windows let's skip setting user
                     //args '-u root:root'
