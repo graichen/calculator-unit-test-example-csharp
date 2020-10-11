@@ -28,7 +28,7 @@ pipeline {
             agent {
                 docker {
                     // to run as non-root:
-                    image 'mcr.microsoft.com/dotnet/core/sdk:3.1.401-alpine3.12'
+                    image 'sonar-csharp-linux:3.1.401-alpine3.12'
                     //args '-u ${JENKINS_UID}'
                     // for windows let's skip setting user
                     //args '-u root:root'
@@ -36,10 +36,12 @@ pipeline {
             }
             steps {
                 sh 'id'
+                sh 'dotnet sonarscanner begin /o:graichen /k:graichen_calculator-unit-test-example-csharp /d:sonar.host.url=https://sonarcloud.io
                 sh 'dotnet build CalculatorApp/CalculatorApp.sln --configuration Release'
-                    
+				sh 'dotnet sonarscanner end'
             }
         }
+
     }
 //    post {
 //        unstable {
